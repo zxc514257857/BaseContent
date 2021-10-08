@@ -1,0 +1,6 @@
+/build
+*.txt
+*.log
+*.apk
+*.dex
+*.class
