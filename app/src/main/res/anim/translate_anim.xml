@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--  数字50表示移动50px-->
+    <!--  50%表示移动相对于本控件的50%-->
+    <!--  50%p表示移动相对于父控件的50%-->
+
+    <!--  这里设置的数值都是相对于左上角为顶点做的猜想-->
+    <translate
+        android:duration="20000"
+        android:fromXDelta="0"
+        android:fromYDelta="0"
+        android:toXDelta="-50%"
+        android:toYDelta="0" />
+</set>

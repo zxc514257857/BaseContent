@@ -59,5 +59,24 @@
             android:textAllCaps="false"
             tools:ignore="HardcodedText" />
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/purple_200">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@color/purple_500"
+                android:foreground="@mipmap/ic_launcher"
+                android:foregroundGravity="center" />
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:overScrollMode="never"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </layout>

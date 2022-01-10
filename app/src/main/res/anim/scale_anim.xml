@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--  fromXScale x轴方向上的原始大小  toXScale x轴方向上的预计大小-->
+    <!--  fromYScale y轴方向上的原始大小  toYScale y轴方向上的预计大小-->
+    <!--  pivotX 50%  +  pivotY 50% 设置xy轴方向上的中心轴  表示是以中心点进行的旋转-->
+    <scale
+        android:duration="2000"
+        android:fromXScale="1"
+        android:fromYScale="1"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="0.8"
+        android:toYScale="0.8" />
+</set>

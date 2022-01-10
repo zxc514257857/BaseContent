@@ -1,4 +1,4 @@
-package com.example.basecontent.p10
+package com.example.basecontent.p10top21
 
 import android.annotation.SuppressLint
 import android.app.*
@@ -17,12 +17,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.example.basecontent.R
 import com.example.basecontent.databinding.ActivityP10Binding
 
 /**
  * 内容包括：Notification、ToolBar、AlertDialog、PopupWindow
+ * 传统五大布局：：
+ * LinearLayout、RelativeLayout、FrameLayout (前面三个布局继承的都是ViewGroup)、TableLayout（继承LinearLayout）、GridLayout（继承ViewGroup）
+ * 约束布局：ConstraintLayout
+ * RecyclerView
  */
 class P10Activity : AppCompatActivity() {
 
@@ -100,6 +107,74 @@ class P10Activity : AppCompatActivity() {
         // dividerPadding  设置分割线左右的padding值
         // 直接通过1dp 的View设置分割线 我们在项目中还使用得更多一点
 
+
+        // RelativeLayout 一些属性
+        // alignParentxxx、centerHorizontal、centerParent、centerVertical  相对于父布局定位
+        // toxxxOf、alignxxx   相对于兄弟布局定位
+        // margin 设置组件与父容器之间的间距（针对子布局设置）
+        // padding  设置组件内部之间的间距（针对父布局设置）
+
+
+        // FrameLayout 是从布局的左上角开始绘制  默认一层叠着一层的设置的
+        // background 设置背景     foreground 设置前景，设置图片默认会拉伸图片铺满
+        // foregroundGravity 设置前景位置 针对图片设置生效，设置图片的显示位置
+
+
+        // TableLayout 一些属性
+        // 默认子布局占用一行  TableLayout行  TableRow 列  搭配使用
+        // 对TableLayout布局的设置：
+        // collapsecolumns="0,1"  隐藏第零列和第一列（默认从0开始是第一列）
+        // stretchColumns="1"  拉伸第一列，需要有留出被拉伸的空间出来，如果没有拉伸空间，则不会有显示变化
+        // shrinkColumns="1"  收缩第一列，需要有留出收缩的空间出来
+        // 对TableLayout下的子布局的设置：
+        // layout_colume="2"  指定子布局在第二列、默认值是0，即第零列显示
+        // layout_span="2"  横向跨两列，默认是跨一列
+        // 有一个局限性就是：不能把两行进行一个合并，只能把两列进行一个合并
+
+
+        // GridLayout 一些属性
+        // 对GridLayout布局的设置：
+        // orientation、columnCount 一行的显示列数，列数超出的部分会自动换行、rowCount 一列的显示行数，
+        // 对GridLayout下的子布局的设置：
+        // layout_column 显示在第几列   layout_row 显示在第几行
+        // layout_columnSpan  横向跨几列（需要结合width和gravity进行设置）   layout_rowSpan  纵向跨几行（需要结合height和gravity进行设置）
+        // layout_columnWeight 横向剩余空间分配方式
+        // layout_gravity  在网格中显示的位置
+
+
+        // ConstraintLayout  在其布局的设置面板左上角有两个按钮注意：Clear All Constraints(清除所有约束)、infer Constraints(推导约束)
+
+
+        // RecuclerView
+        // LauoutInflater和View.inflate的区别： View.inflate内部也是调用的是LayoutInflate.from.inflate(),但他调用的是其两参的构造
+        // 没有使用attachToRoot这个参数，如果root为null，则attachToRoot默认为false，那么就组成了（this,null,false）
+        // 如果root不为null，attachToRoot默认为true，那么就组成了（this，parent，true）
+        // LayoutInflate.from.inflate(this,null,false)和(this,null,true)，只会解析子View
+        // (this,parent,false) 会使用第三个参数中的父布局属性
+        // (this,parent,true) 会给父布局再指定一个父布局，会报错
+        // 参考： https://blog.csdn.net/chenliguan/article/details/82314122
+        val myRvAdapter = MyRvAdapter()
+        binding.rv.apply {
+            // 线性Rv
+            layoutManager = LinearLayoutManager(this@P10Activity, RecyclerView.HORIZONTAL, false)
+            // 网格Rv
+//            layoutManager = GridLayoutManager(this@P10Activity, 3, RecyclerView.VERTICAL, false)
+            // 瀑布流Rv
+//            layoutManager = StaggeredGridLayoutManager(3, RecyclerView.VERTICAL)
+            adapter = myRvAdapter
+        }
+        val list = mutableListOf<String>()
+        for (i in 0 until 10) {
+            list.add("我和我的父辈：$i")
+        }
+        myRvAdapter.setData(list)
+        // RecyclerView的Item点击事件需要自定义
+        myRvAdapter.setOnRvItemClickListener(object : MyRvAdapter.OnRvItemClickListener {
+            override fun rvItemClick(pos: Int) {
+                ToastUtils.showShort("RvItemClickListener:$pos")
+                LogUtils.i("RvItemClickListener:$pos")
+            }
+        })
     }
 
     fun click1(view: View) {
