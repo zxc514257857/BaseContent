@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/barHide"
+        android:title="隐藏条目"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/barShow"
+        android:title="显示条目"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/barElevation"
+        android:title="设置条目阴影高度"
+        tools:ignore="HardcodedText" />
+</menu>

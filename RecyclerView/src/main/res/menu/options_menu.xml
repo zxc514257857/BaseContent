@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/listView"
+        android:title="ListView效果"
+        tools:ignore="HardcodedText">
+
+        <menu>
+            <item
+                android:id="@+id/listView_vertical_standard"
+                android:title="垂直标准" />
+            <item
+                android:id="@+id/listView_vertical_reverse"
+                android:title="垂直反向" />
+            <item
+                android:id="@+id/listView_horizontal_standard"
+                android:title="水平标准" />
+            <item
+                android:id="@+id/listView_horizontal_reverse"
+                android:title="水平反向" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/gridView"
+        android:title="GridView效果"
+        tools:ignore="HardcodedText">
+
+        <menu>
+            <item
+                android:id="@+id/gridView_vertical_standard"
+                android:title="垂直标准" />
+            <item
+                android:id="@+id/gridView_vertical_reverse"
+                android:title="垂直反向" />
+            <item
+                android:id="@+id/gridView_horizontal_standard"
+                android:title="水平标准" />
+            <item
+                android:id="@+id/gridView_horizontal_reverse"
+                android:title="水平标准" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/staggerView"
+        android:title="StaggerView效果"
+        tools:ignore="HardcodedText">
+        <menu>
+            <item
+                android:id="@+id/staggerView_vertical_standard"
+                android:title="垂直标准" />
+            <item
+                android:id="@+id/staggerView_vertical_reverse"
+                android:title="垂直反向" />
+            <item
+                android:id="@+id/staggerView_horizontal_standard"
+                android:title="水平标准" />
+            <item
+                android:id="@+id/staggerView_horizontal_reverse"
+                android:title="水平标准" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/multiply_item"
+        android:title="多条目布局"
+        tools:ignore="HardcodedText" />
+</menu>

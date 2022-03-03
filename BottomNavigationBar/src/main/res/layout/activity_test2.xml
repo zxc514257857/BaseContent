@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.zhr.bottomnavigationbar.test2.NoScrollViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#f3f3f3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewpager" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="ib1,tv1"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintEnd_toStartOf="@+id/group2"
+        app:layout_constraintStart_toStartOf="@id/container"
+        app:layout_constraintTop_toTopOf="@id/container" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="ib2,tv2"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintEnd_toStartOf="@id/group3"
+        app:layout_constraintStart_toEndOf="@id/group1"
+        app:layout_constraintTop_toTopOf="@id/container" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="ib3,tv3"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintEnd_toStartOf="@id/group4"
+        app:layout_constraintStart_toEndOf="@id/group2"
+        app:layout_constraintTop_toTopOf="@id/container" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="ib4,tv4"
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/group3"
+        app:layout_constraintTop_toTopOf="@id/container" />
+
+    <ImageButton
+        android:id="@+id/ib1"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:src="@mipmap/pic1"
+        app:layout_constraintBottom_toTopOf="@id/tv1"
+        app:layout_constraintEnd_toEndOf="@id/group1"
+        app:layout_constraintStart_toStartOf="@id/group1"
+        app:layout_constraintTop_toTopOf="@id/group1"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="首页"
+        android:textSize="10sp"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="@id/group1"
+        app:layout_constraintEnd_toEndOf="@id/ib1"
+        app:layout_constraintStart_toStartOf="@id/ib1"
+        app:layout_constraintTop_toBottomOf="@id/ib1"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <ImageButton
+        android:id="@+id/ib2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:src="@mipmap/pic2"
+        app:layout_constraintBottom_toTopOf="@id/tv2"
+        app:layout_constraintEnd_toEndOf="@id/group2"
+        app:layout_constraintStart_toStartOf="@id/group2"
+        app:layout_constraintTop_toTopOf="@id/group2"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="帮助"
+        android:textSize="10sp"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="@id/group2"
+        app:layout_constraintEnd_toEndOf="@id/ib2"
+        app:layout_constraintStart_toStartOf="@id/ib2"
+        app:layout_constraintTop_toBottomOf="@id/ib2"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <ImageButton
+        android:id="@+id/ib3"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:src="@mipmap/pic3"
+        app:layout_constraintBottom_toTopOf="@id/tv3"
+        app:layout_constraintEnd_toEndOf="@id/group3"
+        app:layout_constraintStart_toStartOf="@id/group3"
+        app:layout_constraintTop_toTopOf="@id/group3"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设置"
+        android:textSize="10sp"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="@id/group3"
+        app:layout_constraintEnd_toEndOf="@id/ib3"
+        app:layout_constraintStart_toStartOf="@id/ib3"
+        app:layout_constraintTop_toBottomOf="@id/ib3"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <ImageButton
+        android:id="@+id/ib4"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        android:src="@mipmap/mine_icon"
+        app:layout_constraintBottom_toTopOf="@id/tv4"
+        app:layout_constraintEnd_toEndOf="@id/group4"
+        app:layout_constraintStart_toStartOf="@id/group4"
+        app:layout_constraintTop_toTopOf="@id/group4"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我的"
+        android:textSize="10sp"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="@id/group4"
+        app:layout_constraintEnd_toEndOf="@id/ib4"
+        app:layout_constraintStart_toStartOf="@id/ib4"
+        app:layout_constraintTop_toBottomOf="@id/ib4"
+        tools:ignore="HardcodedText,SmallSp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

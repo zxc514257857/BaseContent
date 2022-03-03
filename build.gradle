@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.5.0"
+    ext.kotlin_version = "1.5.31"
     repositories {
         google()
         mavenCentral()
@@ -19,6 +19,8 @@ allprojects {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        // BottomNavigationViewEx需要添加
+        maven { url "https://jitpack.io" }
     }
 }
 

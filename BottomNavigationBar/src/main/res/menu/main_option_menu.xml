@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/a1"
+        android:title="设置沉浸式状态栏"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a2"
+        android:title="设置状态栏可见"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a3"
+        android:title="设置状态栏不可见"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a4"
+        android:title="设置状态栏文字异色"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a5"
+        android:title="设置状态栏文字不异色"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a6"
+        android:title="设置状态栏背景红色"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a7"
+        android:title="设置通知栏可见"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a8"
+        android:title="设置导航栏可见"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a9"
+        android:title="设置导航栏不可见"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a10"
+        android:title="设置导航栏背景红色"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a11"
+        android:title="设置导航栏浅色模式(开)"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/a12"
+        android:title="设置导航栏浅色模式(关)"
+        tools:ignore="HardcodedText" />
+</menu>

@@ -14,7 +14,8 @@
         <!--  <activity android:name=".p1top9.P1Activity">-->
         <!--  <activity android:name=".p10top21.P10Activity">-->
 <!--        <activity android:name=".p22top26.P22Activity">-->
-        <activity android:name=".p28.P28Activity">
+<!--        <activity android:name=".p28.P28Activity">-->
+        <activity android:name=".p28.P39Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

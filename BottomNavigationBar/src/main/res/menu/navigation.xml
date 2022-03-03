@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/navigation_home"
+        android:checked="true"
+        android:icon="@mipmap/pic1"
+        android:title="首页"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/navigation_help"
+        android:icon="@mipmap/pic2"
+        android:title="帮助"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@mipmap/pic3"
+        android:title="设置"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/navigation_mine"
+        android:icon="@mipmap/pic4"
+        android:title="我的"
+        tools:ignore="HardcodedText" />
+</menu>
