@@ -1,6 +1,5 @@
-package com.example.basecontent.p28
+package com.example.basecontent.p28top43
 
-import android.os.Parcel
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 

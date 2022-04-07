@@ -13,7 +13,7 @@
 
         <fragment
             android:id="@+id/fg1"
-            android:name="com.example.basecontent.p28.Fragment1"
+            android:name="com.example.basecontent.p28top43.Fragment1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -21,7 +21,7 @@
 
         <fragment
             android:id="@+id/fg2"
-            android:name="com.example.basecontent.p28.Fragment2"
+            android:name="com.example.basecontent.p28top43.Fragment2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"

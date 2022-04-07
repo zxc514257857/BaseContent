@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.basecontent">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,14 +15,20 @@
         tools:ignore="AllowBackup">
         <!--  <activity android:name=".p1top9.P1Activity">-->
         <!--  <activity android:name=".p10top21.P10Activity">-->
-<!--        <activity android:name=".p22top26.P22Activity">-->
-<!--        <activity android:name=".p28.P28Activity">-->
-        <activity android:name=".p28.P39Activity">
+        <!--        <activity android:name=".p22top26.P22Activity">-->
+        <!--        <activity android:name=".p28.P28Activity">-->
+        <!--        默认的activity-->
+        <!--        <activity android:name=".p28top43.P39Activity">-->
+        <!--        <activity android:name=".p44top52.P44Activity">-->
+        <!--        <activity android:name=".p53top62.P53Activity">-->
+        <activity android:name=".p63top70.P63Activity">
+            <!--            激活默认activity的意图-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".p10top21.NotificationActivity" />
+        <activity android:name=".p44top52.P44Activity2" />
     </application>
 </manifest>
