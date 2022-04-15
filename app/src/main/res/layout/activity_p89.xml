@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_intent1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="intent1"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btn_intent2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="intent2"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btn_intent3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="传递实现serializable接口的对象"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btn_intent4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="传递实现parcelable接口的对象"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btn_intent5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MediaRecordActivity"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btn_intent6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MediaPlayerActivity"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btn_intent7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SoundPoolActivity"
+        android:textAllCaps="false"
+        tools:ignore="HardcodedText" />
+</LinearLayout>

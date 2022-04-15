@@ -2,9 +2,6 @@ package com.example.basecontent
 
 import com.example.basecontent.p63top70.UploadService
 import com.example.basecontent.p63top70.WanAndroidService
-import com.example.basecontent.p71.User
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.MediaType.Companion.toMediaTypeOrNull

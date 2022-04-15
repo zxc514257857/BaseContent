@@ -1,4 +1,4 @@
-package com.example.basecontent.p71
+package com.example.basecontent.p71toP78
 
 import android.app.ProgressDialog
 import android.graphics.Bitmap
@@ -10,16 +10,16 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.basecontent.R
+import com.example.basecontent.p71toP78.bean.SuccessBean
+import com.example.basecontent.p71toP78.core.CustomObserver
+import com.example.basecontent.p71toP78.core.LoginEngine
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.ObservableEmitter
-import io.reactivex.rxjava3.core.ObservableOnSubscribe
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.Disposable
-import io.reactivex.rxjava3.functions.Consumer
 import io.reactivex.rxjava3.functions.Function
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.OkHttpClient
@@ -34,6 +34,7 @@ import java.util.concurrent.TimeUnit
  * 4.rx思维
  * 5.rx思维下载图片
  * 6.rxjava操作符学习
+ * 7.自定义Observer
  *
  * @Title:
  * @Project: BaseContent
@@ -125,7 +126,7 @@ class P71Activity : AppCompatActivity() {
         // 同时，使用transient 可以指定此属性不参与序列化和反序列化
         val gson = GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()  // 必须这样创建gson对象
 
-        // rx编程，就是响应式编程，提高编程效率  -> rxjava  rxandroid
+        // rx编程思维下载图片 ，就是响应式编程，提高编程效率  -> rxjava  rxandroid
         // 什么是响应式编程：根据上一层的响应，来影响下一层的变化，从起点到终点
         // 起点（Observable被观察者）   终点（Observer观察者）
         // 在rxjava中 所有的函数都被称作 操作符
@@ -139,24 +140,16 @@ class P71Activity : AppCompatActivity() {
                 // 终点：
                 object : Observer<String> {
                     // 表示订阅成功
-                    override fun onSubscribe(d: Disposable) {
-                        TODO("Not yet implemented")
-                    }
+                    override fun onSubscribe(d: Disposable) {}
 
                     // 表示上一层给我的响应
-                    override fun onNext(t: String) {
-                        TODO("Not yet implemented")
-                    }
+                    override fun onNext(t: String) {}
 
                     // 表示整个发送和接收的链条出现了异常
-                    override fun onError(e: Throwable) {
-                        TODO("Not yet implemented")
-                    }
+                    override fun onError(e: Throwable) {}
 
                     // 表示整个链条全部结束
-                    override fun onComplete() {
-                        TODO("Not yet implemented")
-                    }
+                    override fun onComplete() {}
                 })
 
         // TODO 执行的第二步
@@ -208,11 +201,13 @@ class P71Activity : AppCompatActivity() {
 
             // Observable 起点 ->  对事件进行加工变换（操作符） -> Observe 终点
             // 给上面的分配异步线程（图片下载操作）
+
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<Bitmap> {
                 // TODO 执行的第一步  打开加载框
                 override fun onSubscribe(d: Disposable) {
+                    Log.e("TAG", "onSubscribe: ")
                     progressDialog = ProgressDialog(this@P71Activity)
                     progressDialog?.setTitle("Rxjava run 正在加载中")
                     progressDialog?.show()
@@ -220,15 +215,15 @@ class P71Activity : AppCompatActivity() {
 
                 // TODO 执行的第四步  显示结果
                 override fun onNext(t: Bitmap) {
+                    Log.e("TAG", "onNext: ")
                     iv.setImageBitmap(t)
                 }
 
-                override fun onError(e: Throwable) {
-                    TODO("Not yet implemented")
-                }
+                override fun onError(e: Throwable) {}
 
                 // TODO 执行的最后一步  整个链条结束   关闭加载框
                 override fun onComplete() {
+                    Log.e("TAG", "onComplete: ")
                     progressDialog?.dismiss()
                 }
             })
@@ -239,13 +234,54 @@ class P71Activity : AppCompatActivity() {
         // hci_snoopxxxxxx.cfa  蓝牙日志文件
         // 一些gradle脚本，左侧前面有可以点击的运行按钮进行点击运行执行 task
 
+        // 自定义Observer
+//        登录成功服务器返回
+//        {
+//            data:{xxxx 登录成功的Bean}
+//            code:200
+//            message:"登录成功"
+//        }
+//        登录失败服务器返回
+//        {
+//            data:null
+//            code:404
+//            message:"登录错误"
+//        }
+//        登录成功或者失败返回的数据格式不一样，导致的程序崩溃
+        // retrofit 封装了 Request请求（OkHttp）和 Response请求（RxJava）
+        btn.setOnClickListener {
+            retrofitTest()
+        }
+
+
     }
 
     private fun rxjavaTest() {
         // create操作符: just、map、flatmap
-        // interval 操作符
-//        Observable.interval()
+        // interval 操作符  给定时间间隔
+        Observable.interval(1, TimeUnit.SECONDS).subscribe {
+            println("zhr 大坏蛋")
+        }
+        // filter 根据条件进行过滤
+        // distinct 过滤重复数据/去重
+        // takeWhile  满足条件则终止
+        // cast 强制转换数据类型
+        // groupBy 根据某种条件进行分组
+    }
 
+    private fun retrofitTest() {
+        val observable = LoginEngine.login("zhr", "123456")
+        // 使用自己定义的CustomObserver 拦截了无用信息
+        observable.subscribe(object : CustomObserver() {
+            // 登录成功返回
+            override fun success(bean: SuccessBean) {
+                Log.e("TAG", "success: $bean")
+            }
+            // 登录失败返回
+            override fun error(msg: String) {
+                Log.e("TAG", "error: $msg")
+            }
+        })
     }
 }
 
